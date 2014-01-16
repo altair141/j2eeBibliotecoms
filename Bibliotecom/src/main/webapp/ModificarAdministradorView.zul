@@ -1,0 +1,113 @@
+<?page title="ModificarUsuarioCuenta" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	<div id="registroUsuarioDiv" width="100%" align="center"><!-- apply="com.foo.view.ctrl.UsuarioCtrl" -->
+
+		<div  align="right" width="100%">
+			<menubar>
+				<menuitem label="inicio"
+					href="http://localhost:8080/bibliotecom/ConsultasAdministrador.zul" />
+				<menuitem label="Agregar Prestamo"
+					href="http://localhost:8080/bibliotecom/AgregarPrestamo.zul" />
+				<menuitem label="Editar cuenta"
+					href="http://localhost:8080/bibliotecom/ModificarUsuarioCuentaAdministradorView.zul" />
+				<menuitem label="Editar Area"
+					href="http://localhost:8080/bibliotecom/AreaView.zul" />
+					    
+				<menuitem label="Editar Estado"
+					href="http://localhost:8080/bibliotecom/EstadoView.zul" />
+				<menuitem label="Editar Libro"
+					href="http://localhost:8080/bibliotecom/libroView.zul" />
+				<menu label="cuenta">
+					<menupopup>
+						<menuitem label="Editar cuenta"
+							href="http://localhost:8080/bibliotecom/ModificarAdministradorView.zul" />
+
+						<menuitem label="Cerrar cesión"
+							href="http://localhost:8080/bibliotecom/LogeoView.zul" />
+					</menupopup>
+				</menu>
+
+
+			</menubar>
+		</div>
+		<space spacing="100%" />
+
+		<space spacing="30%" />
+
+
+		<space spacing="40%" />
+		<auxhead>
+			<auxheader colspan="2" label="Datos Usuario:" />
+		</auxhead>
+
+		<space spacing="30%" />
+		<grid id="resgistroUsuarioGrid" width="50%" visible="true"
+			align="center">
+			<columns visible="false" width="100%">
+				<column width="50%" />
+				<column width="50%" />
+
+			</columns>
+			<rows>
+				<row>
+					<label value="Rut:" />
+					<cell>
+						<intbox width="60px" format="000000"
+							constraint="no empty,no negative" disabled="true" />
+						<label value="-" />
+						<textbox width="10px" disabled="true" />
+					</cell>
+				</row>
+
+				<row>
+					<label value="Nombre:" />
+					<textbox disabled="true" />
+				</row>
+				<row>
+					<label value="Apellido Paterno:" />
+					<textbox disabled="true" />
+				</row>
+				<row>
+					<label value="Apellido Materno:" />
+					<textbox disabled="true" />
+				</row>
+				<row>
+					<label value="Direccion:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Telefono:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Email:" />
+					<textbox />
+				</row>
+
+
+			</rows>
+		</grid>
+		<grid id="registroClaveGrid" width="50%" visible="true">
+			<rows>
+
+				<row>
+					<label value="Clave:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Repetir Clave:" />
+					<textbox />
+				</row>
+				<row>
+					<cell colspan="2" align="center">
+						<button id="updateClave" label="Editar" />
+						<space spacing="10px" />
+						<button id="volverRegistro" label="Volver" />
+
+					</cell>
+				</row>
+			</rows>
+		</grid>
+	</div>
+</zk>

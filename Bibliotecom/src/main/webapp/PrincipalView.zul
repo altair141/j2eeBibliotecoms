@@ -1,0 +1,19 @@
+<?page title="Bibliotecom" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	<div id="pricipalDiv" width="100%">
+		<div id="menu" width="100%" align="right">
+
+			<menubar>
+				<menuitem label="login"
+					href="http://localhost:8080/Bibliotecom/logeoView.zul" />
+				
+				<menuitem label="registro"
+					href="http://localhost:8080/Bibliotecom/RegistroUsuarioView.zul" />
+
+			</menubar>
+
+		</div>
+
+	</div>
+</zk>

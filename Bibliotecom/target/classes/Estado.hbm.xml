@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ufro.model.bean">
+	<class name="Estado" table="estado">
+		<id name="idEstado" column="idEstado" type="integer">
+			<generator class="increment" />
+		</id>
+		<property name="nombreEstado" column="nombreEstado" type="string" />
+
+	<!-- lista de usuarios  -->	
+		<set name="libros">
+			<key column="codigoRegistro" />
+			<one-to-many class="com.ufro.model.bean.Libro" />
+		</set>
+	</class>
+</hibernate-mapping>

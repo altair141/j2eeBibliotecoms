@@ -1,0 +1,37 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<div id="categoriaDiv" apply="com.ufro.view.ctrl.CategoriaCtrl">
+    <vbox>
+        <listbox id="categoriaList" width="100%" height="100%">
+            <listhead>
+                <listheader width="50px" label="id" />
+                <listheader width="250px" label="nombre Categoria" sort="auto(catNombre)" />
+
+            </listhead>
+        </listbox>
+        <grid id="editCategoriaGrid" width="100%">
+            <auxhead>
+                <auxheader colspan="2" label="Add/Edit Categoria Info" />
+            </auxhead>
+            <columns visible="false">
+                <column width="50px" />
+                <column width="250px" />
+                
+            </columns>
+            <rows>
+                <row>
+                    <cell><intbox width="50px" value="@{categoriaDiv$composer.categoria.idCategoria}" disabled="true" /></cell>
+                    <cell><textbox width="250px" value="@{categoriaDiv$composer.categoria.catNombre}" /></cell>
+                    
+                </row>
+                <row>
+                    <cell colspan="4" align="center">
+                        <button id="createCategoria" label="add" /><space spacing="10px"/>
+                        <button id="updateCategoria" label="update" disabled="true"/><space spacing="10px"/>
+                        <button id="deleteCategoria" label="delete" disabled="true"/>
+                        <button id="resetCategoria" label="reset" />
+                    </cell>
+                </row>
+            </rows>
+        </grid>
+    </vbox>
+</div>

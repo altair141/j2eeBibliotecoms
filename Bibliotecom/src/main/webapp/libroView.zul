@@ -1,0 +1,174 @@
+<?page title="libro" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<zk>
+
+	<div id="libroDiv" apply="com.ufro.view.ctrl.LibroCtrl"><!-- apply="com.ufro.view.ctrl.LibroCtrl" -->
+		<div align="right" width="100%">
+			<menubar>
+				<menuitem label="inicio"
+					href="http://localhost:8080/bibliotecom/ConsultasAdministrador.zul" />
+				<menuitem label="Agregar Prestamo"
+					href="http://localhost:8080/bibliotecom/AgregarPrestamo.zul" />
+				<menuitem label="Editar cuenta"
+					href="http://localhost:8080/bibliotecom/ModificarUsuarioCuentaAdministradorView.zul" />
+				<menuitem label="Editar Area"
+					href="http://localhost:8080/bibliotecom/AreaView.zul" />
+
+				<menuitem label="Editar Estado"
+					href="http://localhost:8080/bibliotecom/EstadoView.zul" />
+				<menuitem label="Editar Libro"
+					href="http://localhost:8080/bibliotecom/libroView.zul" />
+				<menu label="cuenta">
+					<menupopup>
+						<menuitem label="Editar cuenta"
+							href="http://localhost:8080/bibliotecom/ModificarAdministradorView.zul" />
+
+						<menuitem label="Cerrar cesión"
+							href="http://localhost:8080/bibliotecom/LogeoView.zul" />
+					</menupopup>
+				</menu>
+
+
+			</menubar>
+		</div>
+
+		<grid>
+			<columns visible="false" width="100%">
+				<column />
+				<column />
+				<column />
+			</columns>
+
+			<rows>
+
+				<row spans="1%" width="100%">
+
+					<cell>
+						<label value="Autor:" />
+						<space spacing="1%" />
+						<textbox />
+
+					</cell>
+
+					<cell>
+						<label value="Titulo:" />
+						<space spacing="1%" />
+						<textbox />
+					</cell>
+
+					<cell>
+						<label value="Area:" />
+						<space spacing="1%" />
+						<textbox />
+					</cell>
+
+
+					<cell colspan="2" align="right">
+						<button id="buscarLibroFiltro" label="buscar" />
+						<space spacing="3%" />
+						<button id="limpiarLibroFiltro" label="limpiar" />
+
+					</cell>
+				</row>
+			</rows>
+		</grid>
+		<vbox>
+			<listbox id="libroList" height="250px" width="100%">
+				<listhead>
+					<listheader label="Codigo Registro:" />
+					<listheader label="Titulo:" sort="auto(titulo)" />
+					<listheader label="Autor:" sort="auto(autor)" />
+					<listheader label="Isbn:" />
+					<listheader label="Año:" />
+					<listheader label="Editorial:" />
+					<listheader label="Descripción:" />
+				</listhead>
+			</listbox>
+		</vbox>
+
+
+		<grid id="agregarEditarLibroGrid">
+
+			<auxhead>
+				<auxheader colspan="3" label="agregar/editar libro" />
+			</auxhead>
+			<columns visible="false" width="100%">
+				<column width="15%" />
+				<column width="25%" />
+				<column width="60%" />
+			</columns>
+
+			<rows>
+				<row>
+					<label value="Codigo Registro:" />
+					<intbox disabled="true" />
+					<label />
+				</row>
+				<row>
+					<label value="Titulo:" />
+					<textbox />
+					<label />
+				</row>
+				<row>
+					<label value="Autor:" />
+					<textbox />
+					<label />
+				</row>
+				<row>
+					<label value="Isbn:" />
+					<textbox />
+					<label />
+				</row>
+				<row>
+					<label value="Año:" />
+					<spinner constraint="no negative,no zero"
+						tabindex="10" />
+					<label />
+				</row>
+				<row>
+					<label value="Editorial:" />
+					<textbox />
+					<label />
+				</row>
+				<row>
+					<label value="descripcion:" />
+					<vlayout>
+						<textbox />
+					</vlayout>
+					<label />
+				</row>
+				<row>
+					<label value="Area:" />
+					<bandbox id="areas" mold="rounded"
+						autodrop="true">
+						<bandpopup>
+							<listbox id="areaListLibro" height="250px"
+								width="450px" mold="paging" autopaging="true"
+								onSelect="areas.value=self.selectedItem.label; areas.close();">
+								<listhead>
+									<listheader label="area" />
+								</listhead>
+								<listitem  label="${each}"
+									forEach="${listLibro }" />
+									
+							</listbox>
+						</bandpopup>
+					</bandbox>
+					<label />
+				</row>
+				<row>
+					<cell colspan="4" align="center">
+						<button id="crearLibro" label="agegar" />
+						<space spacing="10px" />
+						<button id="editarLibro" label="editar"
+							disabled="true" />
+						<space spacing="10px" />
+						<button id="eliminarLibro" label="eliminar"
+							disabled="true" />
+						<button id="reiniciarLibro" label="reiniciar" />
+					</cell>
+				</row>
+			</rows>
+		</grid>
+	</div>
+</zk>

@@ -1,0 +1,86 @@
+<?page title="registro" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<zk>
+
+	<div id="registroUsuarioDiv" width="100%" align="center"
+		apply="com.ufro.view.ctrl.RegistroUsuarioCtrl"><!-- apply="com.foo.view.ctrl.UsuarioCtrl" -->
+
+		<div id="menu" align="right" width="100%">
+			<menubar>
+				<menuitem label="inicio"
+					href="http://localhost:8080/Bibliotecom/Consultas.zul"
+					onClick="alert(self.label)" />
+				<menu label="cuenta">
+					<menupopup>
+						<menuitem label="Editar cuenta"
+							href="http://localhost:8080/Bibliotecom/RegistroUsuarioView.zul" />
+						<menuitem label="Cerrar cesión"
+							href="http://localhost:8080/Bibliotecom/LogeoView.zul" />
+					</menupopup>
+				</menu>
+
+
+			</menubar>
+		</div>
+		<space spacing="30%" />
+		<grid id="resgistroUsuarioGrid" width="50%" visible="true">
+			<columns visible="false" width="100%">
+				<column width="50%" />
+				<column width="50%" />
+
+			</columns>
+			<rows>
+				<row>
+
+					<label value="Rut:" />
+<!-- 10px -->
+					<textbox 
+						value="@{registroUsuarioDiv$composer.usuario.rut}" />
+
+				</row>
+
+				<row>
+					<label value="Nombre:" />
+					<textbox
+						value="@{registroUsuarioDiv$composer.usuario.nombre}" />
+				</row>
+				<row>
+					<label value="Apellido Paterno:" />
+					<textbox
+						value="@{registroUsuarioDiv$composer.usuario.apellido1}" />
+				</row>
+				<row>
+					<label value="Apellido Materno:" />
+					<textbox
+						value="@{registroUsuarioDiv$composer.usuario.apellido2}" />
+				</row>
+				<row>
+					<label value="Direccion:" />
+					<textbox
+						value="@{registroUsuarioDiv$composer.usuario.direccion}" />
+				</row>
+				<row>
+					<label value="Telefono:" />
+					<textbox
+						value="@{registroUsuarioDiv$composer.usuario.fono}" />
+				</row>
+				<row>
+					<label value="Email:" />
+					<textbox
+						value="@{registroUsuarioDiv$composer.usuario.email}" />
+				</row>
+				
+				<row>
+					<cell colspan="2" align="center">
+						<button id="createUsuario" label="Siguiente" />
+						<space spacing="10px" />
+						<button id="volver" label="volver" />
+
+					</cell>
+				</row>
+
+			</rows>
+		</grid>
+
+	</div>
+</zk>

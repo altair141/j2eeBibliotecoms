@@ -1,0 +1,183 @@
+<?page title="ConsultasAdministrador" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	<div id="consultasAdminDiv" width="100%" height="100%"><!-- apply="com.foo.view.ctrl.UsuarioCtrl" -->
+	<div  align="right" width="100%">
+			<menubar>
+				<menuitem label="inicio"
+					href="http://localhost:8080/bibliotecom/ConsultasAdministrador.zul" />
+				<menuitem label="Agregar Prestamo"
+					href="http://localhost:8080/bibliotecom/AgregarPrestamo.zul" />
+				<menuitem label="Editar cuenta"
+					href="http://localhost:8080/bibliotecom/ModificarUsuarioCuentaAdministradorView.zul" />
+				<menuitem label="Editar Area"
+					href="http://localhost:8080/bibliotecom/AreaView.zul" />
+					    
+				<menuitem label="Editar Estado"
+					href="http://localhost:8080/bibliotecom/EstadoView.zul" />
+				<menuitem label="Editar Libro"
+					href="http://localhost:8080/bibliotecom/libroView.zul" />
+				<menu label="cuenta">
+					<menupopup>
+						<menuitem label="Editar cuenta"
+							href="http://localhost:8080/bibliotecom/ModificarAdministradorView.zul" />
+
+						<menuitem label="Cerrar cesión"
+							href="http://localhost:8080/bibliotecom/LogeoView.zul" />
+					</menupopup>
+				</menu>
+
+
+			</menubar>
+		</div>
+		<space spacing="30%" />
+		<grid>
+			<columns visible="false" width="100%">
+				<column />
+				<column />
+				<column />
+				<column />
+				<column />
+			</columns>
+
+			<rows>
+
+				<row spans="1%" width="100%">
+
+					<cell>
+						<label value="Rut:" />
+						<space spacing="1%" />
+						<textbox />
+					</cell>
+					<cell>
+						<label value="Nombre:" />
+						<space spacing="1%" />
+						<textbox />
+
+					</cell>
+
+					<cell>
+						<label value="Apellido Paterno:" />
+						<space spacing="1%" />
+						<textbox />
+					</cell>
+
+					<cell>
+						<label value="Apellido Materno:" />
+						<space spacing="1%" />
+						<textbox />
+					</cell>
+
+				</row>
+			</rows>
+		</grid>
+
+		<space spacing="10%" />
+
+		<vbox>
+			<auxhead>
+				<auxheader colspan="2" label="Lista de Usuarios:" />
+			</auxhead>
+			<listbox id="libroListConsultasAdmin" height="150px" width="100%"
+				mold="paging" autopaging="true">
+				<listhead>
+					<listheader label="Rut:" />
+					<listheader label="Nombre:" />
+					<listheader label="Apellido Paterno:" />
+					<listheader label="Apellido Materno:" />
+					<listheader label="tipo de Usuario:" />
+				</listhead>
+			</listbox>
+		</vbox>
+
+		<space spacing="40%" />
+		
+
+		<vbox>
+		<auxhead>
+			<auxheader colspan="2" label="Datos Prestamo:" />
+		</auxhead>
+			<listbox id="prestamoListConsultasAdmin" mold="paging"
+				autopaging="true">
+				<listhead>
+					<listheader label="Fecha Prestamo:" />
+					<listheader label="Fecha Devolución:" />
+					<listheader label="Titulo:"
+						sort="auto(tituloLibro)" />
+					<listheader label="Autor:" sort="auto(autor)" />
+
+				</listhead>
+			</listbox>
+		</vbox>
+		<space spacing="40%" />
+
+		<!-- grid datos libro -->
+
+
+		<div align="center">
+			<grid id="libroDatosConsultasAdmin" visible="true" width="50%" align="center">
+				<auxhead>
+					<auxheader colspan="2" label="Datos de Libro:" />
+
+				</auxhead>
+				<columns visible="false" width="100%">
+					<column width="50%" />
+					<column width="50%" />
+
+				</columns>
+
+				<rows>
+					<row>
+						<label value="Titulo:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Autor:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Isbn:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Area:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Año:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Codigo Registro:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Descripcion:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Editorial:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Estado:" />
+						<textbox disabled="true" />
+					</row>
+					<row>
+						<label value="Fecha Prestamo:" />
+						<datebox id="fechaPrestamo" cols="12"
+							format="dd/MM/yyyy" disabled="true" />
+					</row>
+					<row>
+						<label value="Fecha Devolución:" />
+						<datebox id="fechaDevolucion" cols="12"
+							format="dd/MM/yyyy" disabled="true" />
+					</row>
+
+				</rows>
+			</grid>
+		</div>
+
+		<space spacing="40%" />
+	</div>
+</zk>

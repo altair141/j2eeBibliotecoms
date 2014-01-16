@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ufro.model.bean">
+	<class name="TipoUsuario" table="tipoUsuario">
+		<id name="idTipoUsuario" column="idTUsuario" type="integer">
+			
+		</id>
+		<property name="nombreTipo" column="tipoNombre" type="string" />
+	
+	<!-- lista de usuarios  -->	
+		<set name="usuarios">
+            <key column="rut"/>
+            <one-to-many class="com.ufro.model.bean.Usuario"/>
+        </set>
+        
+	</class>
+</hibernate-mapping>

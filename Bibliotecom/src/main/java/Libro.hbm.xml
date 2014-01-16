@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ufro.model.bean">
+	<class name="Libro" table="libro">
+		<id name="codigoRegistro" column="codigoRegistro" type="integer">
+			<generator class="increment" />
+		</id>
+		<property name="titulo" column="tituloLibro" type="string" />
+		<property name="isbn" column="isbn" type="string" />
+		<property name="autor" column="autor" type="string" />
+		<property name="editorial" column="editorial" type="string" />
+		<property name="descripcion" column="descripcion" type="string" />
+		
+		<!-- relacion con area -->
+		<many-to-one name="Area" column="Area" class="com.ufro.model.bean.Area"
+			outer-join="true" />
+
+		<many-to-one name="Estado" column="Estado" class="com.ufro.model.bean.Estado"
+			outer-join="true" />
+			
+	
+		<property name="agno" column="agno" type="integer" />
+		
+        
+        
+        <!-- lista de prestamo  -->	
+		<set name="prestamos">
+            <key column="idPrestamo"/>
+            <one-to-many class="com.ufro.model.bean.Prestamo"/>
+        </set>
+		
+	</class>
+</hibernate-mapping>

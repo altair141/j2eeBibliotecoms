@@ -1,0 +1,8 @@
+<zk>
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('com.ufro.bibliotecom.MyViewModel')"
+		validationMessages="@id('vmsgs')">
+	
+		<button label="click" onClick="@command('cmd')"/>
+	</window>
+</zk>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ufro.model.bean">
+	<class name="Prestamo" table="prestamo">
+		<id name="idPrestamo" column="idPrestamo" type="integer">
+			
+		</id>
+		<property name="fechaPrestamo" column="fechaPrestamo" type="date" />
+
+        
+        <!-- relacion con Libro -->
+		<many-to-one name="Libro" column="codigoRegistro"
+			class="com.ufro.model.bean.Libro" outer-join="true" />
+		
+			
+		<!-- lista de cuenta_prestamo  -->	
+		<set name="cuentasPrestamos">
+            <key column="idCuentaPrestamo"/>
+            <one-to-many class="com.ufro.model.bean.CuentaPrestamo"/>
+        </set>
+        
+	</class>
+</hibernate-mapping>

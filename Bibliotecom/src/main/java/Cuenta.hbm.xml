@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ufro.model.bean">
+	<class name="Cuenta" table="cuenta">
+		<id name="idCuenta" column="idCuenta" type="integer">
+			<generator class="increment" />
+		</id>
+
+	<!-- relacion con usuario -->
+		<one-to-one name="Usuario" class="com.ufro.model.bean.Usuario"
+			constrained="true"></one-to-one>		
+		
+		<property name="clave" column="clave" type="string" />
+		
+
+	<!-- lista de cuenta_prestamos  -->	
+		<set name="cuentasPrestamos">
+            <key column="idCuentaPrestamo"/>
+            <one-to-many class="com.ufro.model.bean.CuentaPrestamo"/>
+        </set>
+		
+		
+	</class>
+</hibernate-mapping>

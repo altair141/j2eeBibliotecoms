@@ -1,0 +1,193 @@
+<?page title="AdministradorModificarUsuarioCuenta" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	<div id="registroUsuarioDiv" width="100%" align="center"><!-- apply="com.foo.view.ctrl.UsuarioCtrl" -->
+
+		<div  align="right" width="100%">
+			<menubar>
+				<menuitem label="inicio"
+					href="http://localhost:8080/bibliotecom/ConsultasAdministrador.zul" />
+				<menuitem label="Agregar Prestamo"
+					href="http://localhost:8080/bibliotecom/AgregarPrestamo.zul" />
+				<menuitem label="Editar cuenta"
+					href="http://localhost:8080/bibliotecom/ModificarUsuarioCuentaAdministradorView.zul" />
+				<menuitem label="Editar Area"
+					href="http://localhost:8080/bibliotecom/AreaView.zul" />
+					    
+				<menuitem label="Editar Estado"
+					href="http://localhost:8080/bibliotecom/EstadoView.zul" />
+				<menuitem label="Editar Libro"
+					href="http://localhost:8080/bibliotecom/libroView.zul" />
+				<menu label="cuenta">
+					<menupopup>
+						<menuitem label="Editar cuenta"
+							href="http://localhost:8080/bibliotecom/ModificarAdministradorView.zul" />
+
+						<menuitem label="Cerrar cesión"
+							href="http://localhost:8080/bibliotecom/LogeoView.zul" />
+					</menupopup>
+				</menu>
+
+
+			</menubar>
+		</div>
+		<space spacing="30%" />
+		<space spacing="30%" />
+		<grid>
+			<columns visible="false" width="100%">
+				<column />
+				<column />
+				<column />
+				<column />
+				<column />
+			</columns>
+
+			<rows>
+
+				<row spans="1%" width="100%">
+
+					<cell>
+						<label value="Rut:" />
+						<space spacing="1%" />
+						<textbox />
+					</cell>
+					<cell>
+						<label value="Nombre:" />
+						<space spacing="1%" />
+						<textbox />
+
+					</cell>
+
+					<cell>
+						<label value="Apellido Paterno:" />
+						<space spacing="1%" />
+						<textbox />
+					</cell>
+
+					<cell>
+						<label value="Apellido Materno:" />
+						<space spacing="1%" />
+						<textbox />
+					</cell>
+
+
+					<cell colspan="2" align="right">
+						<button id="createClave" label="buscar" />
+						<space spacing="3%" />
+						<button id="limpiarUsuarioFiltro"
+							label="limpiar" />
+
+					</cell>
+				</row>
+			</rows>
+		</grid>
+
+		<space spacing="10%" />
+		<auxhead>
+			<auxheader colspan="2" label="Lista de Usuarios:" />
+		</auxhead>
+		<vbox>
+			<listbox id="libroList" height="150px" width="100%"
+				mold="paging" autopaging="true">
+				<listhead>
+					<listheader label="Rut:" />
+					<listheader label="Nombre:" />
+					<listheader label="Apellido Paterno:" />
+					<listheader label="Apellido Materno:" />
+					<listheader label="tipo de Usuario:" />
+				</listhead>
+			</listbox>
+		</vbox>
+
+		<space spacing="40%" />
+		<auxhead>
+			<auxheader colspan="2" label="Datos Usuario:" />
+		</auxhead>
+
+		<space spacing="30%" />
+		<grid id="resgistroUsuarioGrid" width="50%" visible="true">
+			<columns visible="false" width="100%">
+				<column width="50%" />
+				<column width="50%" />
+
+			</columns>
+			<rows>
+				<row>
+					<label value="Rut:" />
+					<cell>
+						<intbox width="60px" format="000000"
+							constraint="no empty,no negative" disabled="true" />
+						<label value="-" />
+						<textbox width="10px" disabled="true" />
+					</cell>
+				</row>
+
+				<row>
+					<label value="Nombre:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Apellido Paterno:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Apellido Materno:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Direccion:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Telefono:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Email:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="tipo Usuario:" />
+					<bandbox id="TUsuarios" mold="rounded"
+						autodrop="true">
+						<bandpopup>
+							<listbox height="250px" width="450px"
+								mold="paging" autopaging="true">
+								<listhead>
+									<listheader label="area" />
+								</listhead>
+								<listitem label="${each}" />
+							</listbox>
+						</bandpopup>
+					</bandbox>
+					<label />
+				</row>
+
+			</rows>
+		</grid>
+		<grid id="registroClaveGrid" width="50%" visible="true">
+			<rows>
+
+				<row>
+					<label value="Clave:" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Repetir Clave:" />
+					<textbox />
+				</row>
+				<row>
+					<cell colspan="2" align="center">
+						<button id="updateClave" label="Editar" />
+						<space spacing="10px" />
+						<button id="volverRegistro" label="Volver" />
+						<space spacing="10px" />
+						<button id="eliminarUsuario" label="Eliminar" />
+
+
+					</cell>
+				</row>
+			</rows>
+		</grid>
+	</div>
+</zk>

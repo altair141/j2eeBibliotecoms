@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.ufro.model.bean">
+    <class name="Articulo" table="articulo">
+        <id name="idArticulo" column="artId" type="integer">
+            <generator class="increment" />
+        </id>
+        <property name="nombreArt" column="artNombre" type="string" />
+        <property name="precioArt" column="artPrecio" type="integer" />
+        <many-to-one name="Categoria" column="catId" class="com.ufro.model.bean.Categoria" outer-join="true" />
+    </class>
+</hibernate-mapping>

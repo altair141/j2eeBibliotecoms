@@ -1,0 +1,91 @@
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<div id="articuloDiv" apply="com.ufro.view.ctrl.ArticuloCtrl">
+	<vbox>
+		<listbox id="articuloList" width="100%" height="100%">
+			<listhead>
+				<listheader width="50px" label="id" />
+				<listheader width="250px" label="nombre Articulo"
+					sort="auto(nombreArt)" />
+				<listheader width="100px" label="precio"
+					sort="auto(precioArt)" />
+				<listheader width="140px" label="id categoria" />
+				<listheader width="140px" label="nombre categoria" />
+
+			</listhead>
+		</listbox>
+		<grid id="editArticuloGrid" width="100%">
+			<auxhead>
+				<auxheader colspan="2" label="Add/Edit Articulo Info" />
+			</auxhead>
+			<columns visible="false">
+				<column width="50px" />
+				<column width="250px" />
+				<column width="250px" />
+				<column width="250px" />
+			</columns>
+			<rows>
+				<row>
+					<cell>
+						<intbox width="50px"
+							value="@{articuloDiv$composer.articulo.idArticulo}"
+							disabled="true" />
+					</cell>
+					<cell>
+						<textbox width="250px"
+							value="@{articuloDiv$composer.articulo.nombreArt}" />
+					</cell>
+					<cell>
+						<textbox width="100px"
+							value="@{articuloDiv$composer.articulo.precioArt}" />
+					</cell>
+					<cell>
+						<bandbox id="bd" mold="rounded"
+							autodrop="true">
+
+							<bandpopup>
+								<listbox height="250px" width="450px"
+									mold="paging" autopaging="true"
+									onSelect="bd.value=self.selectedItem.label; bd.close();">
+									<listhead>
+										<listheader
+											label="Programming Languages" />
+									</listhead>
+									<listitem label="${each}"
+										forEach="${languages}" />
+								</listbox>
+							</bandpopup>
+
+						</bandbox>
+					</cell>
+					<cell>
+						<div id="categoriaDiv"
+							apply="com.ufro.view.ctrl.CategoriaCtrl">
+							<listbox id="categoriaList" width="50%"
+								height="100%">
+								<listhead>
+									<listheader width="50px" label="id" />
+									<listheader width="250px"
+										label="Categoria" sort="auto(catNombre)" />
+
+								</listhead>
+							</listbox>
+						</div>
+					</cell>
+
+				</row>
+				<row>
+					<cell colspan="4" align="center">
+						<button id="createArticulo" label="add" />
+						<space spacing="10px" />
+						<button id="updateArticulo" label="update"
+							disabled="true" />
+						<space spacing="10px" />
+						<button id="deleteArticulo" label="delete"
+							disabled="true" />
+						<button id="resetArticulo" label="reset" />
+					</cell>
+				</row>
+			</rows>
+		</grid>
+	</vbox>
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ufro.model.bean">
+	<class name="CuentaPrestamo" table="cuenta_prestamo">
+		<id name="idCuentaPrestamo" column="idCuentaPrestamo" type="integer">			
+		</id>
+		
+			
+		<!-- relacion con cuenta -->
+		<many-to-one name="Cuenta" column="idCuenta"
+			class="com.ufro.model.bean.Cuenta" outer-join="true" />
+			
+		<!-- relacion con prestamo -->
+		<many-to-one name="Prestamo" column="idPrestamo"
+			class="com.ufro.model.bean.Prestamo" outer-join="true" />
+					
+	
+	</class>
+</hibernate-mapping>
