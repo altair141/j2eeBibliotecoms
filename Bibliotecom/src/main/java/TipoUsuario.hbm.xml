@@ -2,15 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ufro.model.bean">
-	<class name="TipoUsuario" table="tipoUsuario">
+	<class name="TipoUsuario" table="tipo_usuario">
 		<id name="idTipoUsuario" column="idTUsuario" type="integer">
-			
+			<generator class="increment" />
 		</id>
 		<property name="nombreTipo" column="tipoNombre" type="string" />
 	
 	<!-- lista de usuarios  -->	
 		<set name="usuarios">
-            <key column="rut"/>
+            <key column="idUsuario"/>
             <one-to-many class="com.ufro.model.bean.Usuario"/>
         </set>
         

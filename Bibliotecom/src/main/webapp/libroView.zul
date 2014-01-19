@@ -81,7 +81,8 @@
 					<listheader label="Isbn:" />
 					<listheader label="Año:" />
 					<listheader label="Editorial:" />
-					<listheader label="Descripción:" />
+					<listheader label="Id Estado:" />
+
 				</listhead>
 			</listbox>
 		</vbox>
@@ -100,40 +101,49 @@
 
 			<rows>
 				<row>
+					<label visible="false" value="id libro:" />
+					<intbox visible="false"
+						value="@{libroDiv$composer.libro.idLibro}" />
+					<label />
+				</row>
+				<row>
 					<label value="Codigo Registro:" />
-					<intbox disabled="true" />
+					<intbox
+						value="@{libroDiv$composer.libro.codigoRegistro}" />
 					<label />
 				</row>
 				<row>
 					<label value="Titulo:" />
-					<textbox />
+					<textbox value="@{libroDiv$composer.libro.titulo}" />
 					<label />
 				</row>
 				<row>
 					<label value="Autor:" />
-					<textbox />
+					<textbox value="@{libroDiv$composer.libro.autor}" />
 					<label />
 				</row>
 				<row>
 					<label value="Isbn:" />
-					<textbox />
+					<textbox value="@{libroDiv$composer.libro.isbn}" />
 					<label />
 				</row>
 				<row>
 					<label value="Año:" />
 					<spinner constraint="no negative,no zero"
-						tabindex="10" />
+						tabindex="10" value="@{libroDiv$composer.libro.agno}" />
 					<label />
 				</row>
 				<row>
 					<label value="Editorial:" />
-					<textbox />
+					<textbox
+						value="@{libroDiv$composer.libro.editorial}" />
 					<label />
 				</row>
 				<row>
 					<label value="descripcion:" />
 					<vlayout>
-						<textbox />
+						<textbox
+							value="@{libroDiv$composer.libro.descripcion}" />
 					</vlayout>
 					<label />
 				</row>
@@ -146,16 +156,51 @@
 								width="450px" mold="paging" autopaging="true"
 								onSelect="areas.value=self.selectedItem.label; areas.close();">
 								<listhead>
-									<listheader label="area" />
+									<listheader label="id area" />
+									<listheader label="nombre area" />
 								</listhead>
-								<listitem  label="${each}"
-									forEach="${listLibro }" />
-									
+
+								<listitem>
+									<listcell label="${each.idArea}"
+										forEach="${libroDiv$composer.listArea}" />
+								</listitem>
+								<listitem>
+									<listcell label="${each.nombreArea}"
+										forEach="${libroDiv$composer.listArea}" />
+								</listitem>
+
+
 							</listbox>
 						</bandpopup>
 					</bandbox>
 					<label />
 				</row>
+				<row>
+					<label value="Estado:" />
+					<bandbox id="estados" mold="rounded"
+						autodrop="true">
+						<bandpopup>
+							<listbox id="estadoListLibro" height="250px"
+								width="450px" mold="paging" autopaging="true"
+								onSelect="estados.value=self.selectedItem.label; estados.close();">
+								<listhead>
+									<listheader label="id estado" />
+									<listheader label="nombre estado" />
+								</listhead>
+								<listitem label="${each.idEstado}"
+									forEach="${libroDiv$composer.listEstado}" />
+								<listitem label="${each.nombreEstado}"
+									forEach="${libroDiv$composer.listEstado}" />
+
+							</listbox>
+						</bandpopup>
+					</bandbox>
+					<label />
+				</row>
+				<row>
+
+				</row>
+
 				<row>
 					<cell colspan="4" align="center">
 						<button id="crearLibro" label="agegar" />

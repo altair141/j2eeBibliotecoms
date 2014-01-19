@@ -1,0 +1,111 @@
+<?page title="tipoUsuario" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+
+<div id="TipoDiv" apply="com.ufro.view.ctrl.TipoUsuarioCtrl">
+	<div align="right" width="100%">
+		<menubar>
+			<menuitem label="inicio"
+				href="http://localhost:8080/bibliotecom/ConsultasAdministrador.zul" />
+			<menuitem label="Agregar Prestamo"
+				href="http://localhost:8080/bibliotecom/AgregarPrestamo.zul" />
+			<menuitem label="Editar cuenta"
+				href="http://localhost:8080/bibliotecom/ModificarUsuarioCuentaAdministradorView.zul" />
+			<menuitem label="Editar TipoUsuario"
+				href="http://localhost:8080/bibliotecom/TipoUsuarioView.zul" />
+
+			<menuitem label="Editar Estado"
+				href="http://localhost:8080/bibliotecom/EstadoView.zul" />
+			<menuitem label="Editar Libro"
+				href="http://localhost:8080/bibliotecom/libroView.zul" />
+			<menu label="cuenta">
+				<menupopup>
+					<menuitem label="Editar cuenta"
+						href="http://localhost:8080/bibliotecom/ModificarAdministradorView.zul" />
+
+					<menuitem label="Cerrar cesión"
+						href="http://localhost:8080/bibliotecom/LogeoView.zul" />
+				</menupopup>
+			</menu>
+
+
+		</menubar>
+	</div>
+	<space spacing="100%" />
+
+	<div id="buscadorTipoUsuario" align="left" width="100%">
+		<grid>
+
+			<rows>
+				<row>
+					<cell align="right">
+						<label value="Nombre TipoUsuario:" />
+						<space spacing="1%" />
+						<textbox />
+
+					</cell>
+					<cell align="right" width="20%">
+						<button id="createClave" label="buscar" />
+						<space spacing="3%" />
+						<button id="limpiarTipo" label="limpiar" />
+
+					</cell>
+				</row>
+			</rows>
+		</grid>
+	</div>
+	<space spacing="100%" />
+
+	<vbox>
+		<listbox id="tipoList" width="100%">
+			<listhead>
+			<listheader label="ID Tipo Usuario:" />
+			<listheader label="Nombre Tiopo Usuario:"
+					sort="auto(nombreTipo)" />
+			
+				
+				
+			</listhead>
+		</listbox>
+	</vbox>
+
+	<grid id="datosTipoUsuario">
+
+		<auxhead>
+			<auxheader colspan="3" label="agregar/editar TipoUsuario" />
+		</auxhead>
+		<columns visible="false" width="100%">
+			<column width="15%" />
+			<column width="25%" />
+			<column width="60%" />
+		</columns>
+
+		<rows>
+			<row>
+				<label value="Id TipoUsuario:" />
+				<intbox disabled="true"
+					value="@{tipoDiv$composer.tipoUsuario.idTipoUsuario}" />
+				<label />
+			</row>
+			<row>
+				<label value="Nombre TipoUsuario:" />
+				<textbox
+					value="@{tipoDiv$composer.tipoUsuario.nombreTipo}" />
+				<label />
+			</row>
+
+			<row>
+				<cell colspan="4" align="center">
+					<button id="createTipoUsuario" label="agegar" />
+					<space spacing="10px" />
+					<button id="updateTipoUsuario" label="editar"
+						disabled="true" />
+					<space spacing="10px" />
+					<button id="deleteTipoUsuario" label="eliminar"
+						disabled="true" />
+					<space spacing="10px" />
+					<button id="resetTipoUsuario" label="reiniciar" />
+				</cell>
+			</row>
+		</rows>
+	</grid>
+</div>

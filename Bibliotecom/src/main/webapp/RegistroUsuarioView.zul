@@ -31,12 +31,20 @@
 			</columns>
 			<rows>
 				<row>
-
+					<label value="id Usuario:" visible="false" />
+					<intbox visible="false"
+						value="@{registroUsuarioDiv$composer.usuario.idUsuario}" />
+				</row>
+				<row>
 					<label value="Rut:" />
-<!-- 10px -->
-					<textbox 
-						value="@{registroUsuarioDiv$composer.usuario.rut}" />
 
+					<cell>
+						<intbox
+							value="@{registroUsuarioDiv$composer.usuario.rut}" />
+						<label value="-" />
+						<textbox width="10px"
+							value="@{registroUsuarioDiv$composer.usuario.dVerificador}" />
+					</cell>
 				</row>
 
 				<row>
@@ -61,7 +69,7 @@
 				</row>
 				<row>
 					<label value="Telefono:" />
-					<textbox
+					<intbox
 						value="@{registroUsuarioDiv$composer.usuario.fono}" />
 				</row>
 				<row>
@@ -69,7 +77,26 @@
 					<textbox
 						value="@{registroUsuarioDiv$composer.usuario.email}" />
 				</row>
-				
+				<row>
+					<label value="tipo Usuario:" />
+					<bandbox id="tipoUsuarioBand" mold="rounded"
+						autodrop="true">
+						<bandpopup>
+							<listbox id="listTipoUsuarioRegistro" height="250px"
+								width="450px" mold="paging" autopaging="true"
+								onSelect="tipoUsuarioBand.value=self.selectedItem.label; tipoUsuarioBand.close();">
+								<listhead>
+									<listheader label="id tipo usuario" />
+									<listheader label="nombre tipo usuario" />
+								</listhead>
+
+								<listitem label="${each.idTipoUsuario}"
+										forEach="${registroUsuarioDiv$composer.listTipoUsuarioArray}" />						
+							</listbox>
+						</bandpopup>
+					</bandbox>
+					<label />
+				</row>
 				<row>
 					<cell colspan="2" align="center">
 						<button id="createUsuario" label="Siguiente" />

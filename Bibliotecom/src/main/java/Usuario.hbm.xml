@@ -3,27 +3,30 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ufro.model.bean">
 	<class name="Usuario" table="usuario">
-		<id name="rut" column="rut" type="string">
-		<generator class="increment" />			
+		<id name="idUsuario" column="idUsuario" type="integer">
+			<generator class="increment" />
 		</id>
+		<property name="rut" column="rut" type="integer" />
+		<property name="dVerificador" column="dVerificador" type="string" />
 		<property name="nombre" column="nombreUsuario" type="string" />
 		<property name="apellido1" column="apellido1" type="string" />
 		<property name="apellido2" column="apellido2" type="string" />
 		<property name="direccion" column="direccion" type="string" />
 		<property name="fono" column="fono" type="integer" />
-		<property name="email" column="email" type="string" />		
+		<property name="email" column="email" type="string" />
+
 
 
 		<!-- relacion con TipoUsuario -->
 		<many-to-one name="tipoUsuario" column="idTUsuario"
 			class="com.ufro.model.bean.TipoUsuario" outer-join="true" />
-			
-			
-		<!-- relacion "one-to-one" con cuenta  -->	
+
+
+		<!-- relacion "one-to-one" con cuenta -->
 		<one-to-one name="cuenta" class="com.ufro.model.bean.Cuenta"
 			cascade="save-update"></one-to-one>
-		
-		
-		
+
+
+
 	</class>
 </hibernate-mapping>

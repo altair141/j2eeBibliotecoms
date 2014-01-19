@@ -12,6 +12,7 @@
 			constrained="true"></one-to-one>		
 		
 		<property name="clave" column="clave" type="string" />
+		<property name="nombreUsuario" column="nombreUsuario" type="string" />
 		
 
 	<!-- lista de cuenta_prestamos  -->	

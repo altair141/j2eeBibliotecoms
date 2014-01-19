@@ -14,6 +14,7 @@ public class Libro implements Serializable {
 	
 
 	private Integer codigoRegistro;
+	private Integer idLibro;
 	private String titulo;
 	private String isbn;
 	private String autor;
@@ -214,5 +215,13 @@ public class Libro implements Serializable {
 					 */
 					public Set<Prestamo> getPrestamos() {
 						return prestamos;
+					}
+
+					public Integer getIdLibro() {
+						return idLibro;
+					}
+
+					public void setIdLibro(Integer idLibro) {
+						this.idLibro = idLibro;
 					}
 }

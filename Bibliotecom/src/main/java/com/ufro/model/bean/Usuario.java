@@ -9,7 +9,9 @@ public class Usuario  implements Serializable{
 	 */
 	private static final long serialVersionUID = -6855456788175573045L;
 
-	private String rut;
+	private Integer rut;
+	private Integer idUsuario;
+	private String dVerificador;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
@@ -23,18 +25,7 @@ public class Usuario  implements Serializable{
 	}
 
 	/**
-	 * @return the rut
-	 */
-	public String getRut() {
-		return rut;
-	}
 
-	/**
-	 * @param rut the rut to set
-	 */
-	public void setRut(String rut) {
-		this.rut = rut;
-	}
 
 	/**
 	 * @return the nombre
@@ -146,6 +137,38 @@ public class Usuario  implements Serializable{
 	 */
 	public void setCuenta(Cuenta cuenta) {
 		this.cuenta = cuenta;
+	}
+
+	public String getDVerificador() {
+		return dVerificador;
+	}
+
+	public void setDVerificador(String dVerificador) {
+		this.dVerificador = dVerificador;
+	}
+
+	public void setRut(Integer rut) {
+		this.rut = rut;
+	}
+
+	public Integer getRut() {
+		return rut;
+	}
+
+	public String getdVerificador() {
+		return dVerificador;
+	}
+
+	public void setdVerificador(String dVerificador) {
+		this.dVerificador = dVerificador;
+	}
+
+	public Integer getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	
 	

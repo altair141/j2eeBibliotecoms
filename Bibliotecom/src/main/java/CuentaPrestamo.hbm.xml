@@ -3,7 +3,8 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ufro.model.bean">
 	<class name="CuentaPrestamo" table="cuenta_prestamo">
-		<id name="idCuentaPrestamo" column="idCuentaPrestamo" type="integer">			
+		<id name="idCuentaPrestamo" column="idCuentaPrestamo" type="integer">	
+		<generator class="increment" />		
 		</id>
 		
 			

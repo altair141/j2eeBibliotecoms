@@ -4,7 +4,7 @@
 <hibernate-mapping package="com.ufro.model.bean">
 	<class name="Prestamo" table="prestamo">
 		<id name="idPrestamo" column="idPrestamo" type="integer">
-			
+			<generator class="increment" />
 		</id>
 		<property name="fechaPrestamo" column="fechaPrestamo" type="date" />
 

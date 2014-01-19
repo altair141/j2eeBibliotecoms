@@ -10,7 +10,7 @@
 
 	<!-- lista de usuarios  -->	
 		<set name="libros">
-			<key column="codigoRegistro" />
+			<key column="idLibro" />
 			<one-to-many class="com.ufro.model.bean.Libro" />
 		</set>
 	</class>

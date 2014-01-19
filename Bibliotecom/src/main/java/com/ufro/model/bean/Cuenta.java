@@ -12,8 +12,9 @@ public class Cuenta implements Serializable{
 	private static final long serialVersionUID = -3590793464545915392L;
 
 	private Integer idCuenta;
-	private Usuario rutUsuario;
+	private Usuario usuario;
 	private String clave;
+	private String nombreUsuario;
 	
 	//lista de cuenta_Libro. 
 	private Set<CuentaPrestamo> cuentasPrestamos = new HashSet<CuentaPrestamo>();
@@ -25,14 +26,14 @@ public class Cuenta implements Serializable{
 	 * @return the rutUsuario
 	 */
 	public Usuario getUsuario() {
-		return rutUsuario;
+		return usuario;
 	}
 
 	/**
 	 * @param rutUsuario the rutUsuario to set
 	 */
 	public void setUsuario(Usuario rutUsuario) {
-		this.rutUsuario = rutUsuario;
+		this.usuario = rutUsuario;
 	}
 
 	/**
@@ -85,6 +86,14 @@ public class Cuenta implements Serializable{
 	
 	public void removeCuentaLibro(CuentaPrestamo CuentaPrestamo ) {
 		cuentasPrestamos.remove(CuentaPrestamo);
+	}
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 	
 	

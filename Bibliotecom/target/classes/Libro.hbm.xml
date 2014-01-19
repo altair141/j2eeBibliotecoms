@@ -3,9 +3,10 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ufro.model.bean">
 	<class name="Libro" table="libro">
-		<id name="codigoRegistro" column="codigoRegistro" type="integer">
+		<id name="idLibro" column="idLibro" type="integer">
 			<generator class="increment" />
 		</id>
+		<property name="codigoRegistro" column="codigoRegistro" type="integer" />
 		<property name="titulo" column="tituloLibro" type="string" />
 		<property name="isbn" column="isbn" type="string" />
 		<property name="autor" column="autor" type="string" />
